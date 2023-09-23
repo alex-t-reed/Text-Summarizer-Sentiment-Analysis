@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="center-align">Text Summarizer</h1>
+    <form method="POST" action="/summarize" onsubmit="return validateForm()">
+        <div class="input-field">
+            <textarea id="input_text" class="materialize-textarea" name="input_text" rows="1"
+                placeholder="Enter your text here..." required></textarea>
+            <label for="input_text">Enter your text here:</label>
+            <div class="invalid-feedback">Text cannot be empty.</div>
+        </div>
+        <button type="submit" class="btn waves-effect waves-light"
+            style="background-color: #bc2a8d;">Summarize</button>
+
+        <!-- "Sample from Wikipedia" button to fetch random Wikipedia text -->
+        <button type="button" class="btn waves-effect waves-light" style="background-color: #bc2a8d;"
+            id="sampleBtn">Sample from Wikipedia</button>
+    </form>
+    {% if summary %}
+    <hr>
+    <div class="row">
+        <div class="col s6">
+            <h3 class="center-align">Original Text</h3>
+            <p>{{ original_text }}</p>
+        </div>
+        <div class="col s6">
+            <h3 class="center-align">Summary</h3>
+            <p>{{ summary }}</p>
+        </div>
+    </div>
+    {% endif %}
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script>
+    // Initialize Materialize components
+    $(document).ready(function () {
+        M.AutoInit();
+    });
+
+    // "Sample from Wikipedia" button click event to fetch random Wikipedia text
+    document.getElementById("sampleBtn").addEventListener("click", function () {
+        fetchRandomWikipediaText();
+    });
+
+    // Function to fetch random Wikipedia text and populate the textarea
+    function fetchRandomWikipediaText() {
+        fetch("https://en.wikipedia.org/api/rest_v1/page/random/summary")
+            .then(response => response.json())
+            .then(data => {
+                const randomText = data.extract || "No content available.";
+                const inputText = document.getElementById("input_text");
+                inputText.value = randomText;
+                // Auto-resize the textarea to fit the content
+                M.textareaAutoResize(inputText);
+                // Automatically submit the form to summarize the text
+                document.querySelector("form").submit();
+            })
+            .catch(error => {
+                console.error("Error fetching random Wikipedia text:", error);
+            });
+    }
+
+    // Form validation
+    function validateForm() {
+        const inputText = document.getElementById("input_text").value.trim();
+        if (inputText === "") {
+            // Display the invalid feedback and prevent form submission
+            document.querySelector(".invalid-feedback").style.display = "block";
+            return false;
+        } else {
+            // Hide the invalid feedback
+            document.querySelector(".invalid-feedback").style.display = "none";
+            return true;
+        }
+    }
+</script>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="center-align">About Text Summarizer</h1>
+    <p>Welcome to the Text Summarizer application! This application leverages advanced natural language processing techniques to create concise and coherent summaries from longer pieces of text.</p>
+    <p>Our mission is to simplify the process of information extraction, making it easier for users to digest and comprehend voluminous content such as articles, reports, and documents.</p>
+    <div class="divider"></div>
+    <h5>Key Technologies Used:</h5>
+    <ul class="collection">
+        <li class="collection-item">Natural Language Processing (NLP)</li>
+        <li class="collection-item">Python</li>
+        <li class="collection-item">Flask Web Framework</li>
+        <li class="collection-item">NLTK (Natural Language Toolkit)</li>
+        <li class="collection-item">Bootstrap Framework</li>
+    </ul>
+    <div class="divider"></div>
+    <h5>Limitations:</h5>
+    <ul class="collection">
+        <li class="collection-item">The quality of the summary depends on the complexity and quality of the input text. It may not always capture nuances and context effectively.</li>
+        <li class="collection-item">The summarization model used here is based on word frequency and may not handle very technical or domain-specific content optimally.</li>
+        <li class="collection-item">Large volumes of text may result in less coherent summaries.</li>
+    </ul>
+    <div class="divider"></div>
+    <h5>APIs Used:</h5>
+    <ul class="collection">
+        <li class="collection-item">Wikipedia API: To provide random articles for summarization.</li>
+    </ul>
+</div>
+{% endblock %}
