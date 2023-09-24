@@ -91,4 +91,4 @@ def summarize():
                            summary_sentiment=summary_sentiment, summary_sentiment_score=summary_sentiment_score, dark_mode=False)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=5000)
