@@ -1,8 +1,8 @@
-# Text Summarizer Web Application
+# Text Summarizer with Sentiment Analysis Web App
 
 ![Demo GIF](./demo.gif)
 
-The Text Summarizer is a web application that leverages natural language processing techniques to create concise and coherent summaries from longer pieces of text. It simplifies the process of information extraction, making it easier for users to digest and comprehend voluminous content such as articles, reports, and documents.
+The Text Summarizer is a web application that leverages natural language processing techniques to create concise and coherent summaries from longer pieces of text. It simplifies the process of information extraction, making it easier for users to digest and comprehend voluminous content such as articles, reports, and documents.Additionally, it includes sentiment analysis for the original text.
 
 This project builds upon previous work in the [NLP-Example Repository](https://github.com/alex-t-reed/NLP-Example), which contains Python scripts for Natural Language Processing (NLP) tasks and text summarization.
 
@@ -20,7 +20,7 @@ This project builds upon previous work in the [NLP-Example Repository](https://g
 - User-friendly web interface for text summarization.
 - Automatic summarization of input text.
 - Option to sample random content from Wikipedia for summarization.
-- Dark mode for comfortable reading.
+- Sentiment analysis for original and summary text.
 
 ## Technologies Used
 
@@ -46,7 +46,7 @@ To run this application locally, follow these steps:
 1. Clone this repository to your local machine.
 
 ```bash
-git clone https://github.com/alex-t-reed/text-summarizer.git
+git clone https://github.com/alex-t-reed/text-summarizer-sentiment-analysis.git
 cd text-summarizer
 ```
 2. Install the required Python packages using pip. It's recommended to use a virtual environment.

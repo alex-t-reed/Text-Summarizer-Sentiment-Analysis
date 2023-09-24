@@ -2,6 +2,7 @@ from nltk.probability import FreqDist
 from nltk.corpus import stopwords
 from nltk.tokenize import sent_tokenize, word_tokenize
 from flask import Flask, render_template, request
+from textblob import TextBlob
 
 app = Flask(__name__)
 
@@ -48,6 +49,18 @@ def generate_summary(text):
     summary = ' '.join(summary_sentences)
     return summary
 
+def analyze_sentiment(text):
+    analysis = TextBlob(text)
+    sentiment_score = analysis.sentiment.polarity
+    if sentiment_score > 0.1:
+        sentiment = "Positive"
+    elif sentiment_score < -0.1:
+        sentiment = "Negative"
+    else:
+        sentiment = "Neutral"
+    return sentiment, sentiment_score
+
+
 @app.route('/')
 def home():
     return render_template('index.html', summary=None, dark_mode=False)
@@ -60,7 +73,22 @@ def about():
 def summarize():
     text = request.form['input_text']
     summary = generate_summary(text)
-    return render_template('index.html', summary=summary, original_text=text, dark_mode=False)
+    
+    # Analyze sentiment for the original text
+    original_sentiment, original_sentiment_score = analyze_sentiment(text)
+    
+    # Format the sentiment score with two decimal places
+    original_sentiment_score = round(original_sentiment_score, 2)
+    
+    # Analyze sentiment for the summary text
+    summary_sentiment, summary_sentiment_score = analyze_sentiment(summary)
+    
+    # Format the sentiment score for the summary with two decimal places
+    summary_sentiment_score = round(summary_sentiment_score, 2)
+    
+    return render_template('index.html', summary=summary, original_text=text, 
+                           original_sentiment=original_sentiment, original_sentiment_score=original_sentiment_score,
+                           summary_sentiment=summary_sentiment, summary_sentiment_score=summary_sentiment_score, dark_mode=False)
 
 if __name__ == '__main__':
     app.run(debug=True)

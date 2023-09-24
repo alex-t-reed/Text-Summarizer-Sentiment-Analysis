@@ -1,9 +1,8 @@
-<!-- text_summarizer/templates/base.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}Text Summarizer{% endblock %}</title>
+    <title>Text Summarizer with Sentiment Analysis</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <style>
         body {
@@ -12,20 +11,14 @@
             color: #333; /* Dark gray text */
             margin: 0;
             padding: 0;
-            height: 100vh;
-        }
-
-        /* Dark mode styles */
-        @media (prefers-color-scheme: dark) {
-            body {
-                background-color: #1e1e1e; /* Dark background */
-                color: #fff; /* White text */
-            }
+            min-height: 100vh; /* Ensure full viewport height */
+            display: flex;
+            flex-direction: column; /* Make the body a flex container */
         }
 
         /* Wrapper for content */
         .content-wrapper {
-            min-height: calc(100vh - 56px); /* Adjust for the height of the navbar */
+            flex-grow: 1; /* Allow content to grow and take available space */
             padding-bottom: 56px; /* Adjust for the height of the footer */
         }
 
@@ -34,8 +27,6 @@
             background-color: #f0f0f0; /* Light gray background for footer */
             color: #333; /* Dark gray text for footer */
             padding: 10px 0;
-            position: absolute;
-            bottom: 0;
             width: 100%;
         }
 
@@ -43,17 +34,17 @@
             margin-bottom: 0;
         }
 
-        /* Instagram-style navigation bar */
-        .navbar-instagram {
-            background-color: #405DE6; /* Instagram blue */
-            color: #fff; /* White text */
+        /* Navigation bar styles */
+        .navbar {
+            background-color: #405DE6; /* Background color for the navigation bar */
+            color: #fff; /* Text color for the navigation bar */
         }
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-instagram">
+    <nav class="navbar">
         <div class="nav-wrapper">
-            <a href="/" class="brand-logo">Text Summarizer</a>
+            <a href="/" class="brand-logo">Text Summarizer with Sentiment Analysis</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a href="/">Home</a></li>
                 <li><a href="/about">About</a></li>
