@@ -12,7 +12,7 @@ This project builds upon previous work in the [NLP-Example Repository](https://g
   - [Usage](#usage)
   - [Installation](#installation)
   - [Limitations](#limitations)
-  - [Feedback:](#feedback)
+  - [Feedback](#feedback)
 
 ## Features
 
@@ -69,7 +69,7 @@ python app.py
 - The summarization model used here is based on word frequency and may not handle very technical or domain-specific content optimally.
 - Large volumes of text may result in less coherent summaries.
 ---
-## Feedback:
+## Feedback
 
 For questions, suggestions, or collaboration opportunities, please don't hesitate to reach out me.
 - **Email**: [Alex Reed](mailto:alexreed@ucsb.edu)
