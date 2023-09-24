@@ -6,14 +6,13 @@ The Text Summarizer is a web application that leverages natural language process
 
 This project builds upon previous work in the [NLP-Example Repository](https://github.com/alex-t-reed/NLP-Example), which contains Python scripts for Natural Language Processing (NLP) tasks and text summarization.
 
-## Table of Contents
-
-- [Features](#features)
-- [Technologies Used](#technologies-used)
-- [Usage](#usage)
-- [Installation](#installation)
-- [Limitations](#limitations)
-- [Feedback](#feedback)
+- [Text Summarizer with Sentiment Analysis Web App](#text-summarizer-with-sentiment-analysis-web-app)
+  - [Features](#features)
+  - [Technologies Used](#technologies-used)
+  - [Usage](#usage)
+  - [Installation](#installation)
+  - [Limitations](#limitations)
+  - [Feedback:](#feedback)
 
 ## Features
 
@@ -28,6 +27,7 @@ This project builds upon previous work in the [NLP-Example Repository](https://g
 - Flask web framework for building the web application.
 - NLTK (Natural Language Toolkit) for text processing and summarization.
 - Bootstrap Framework for styling the user interface.
+- TextBlob for sentiment analysis.
 
 ## Usage
 

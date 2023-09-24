@@ -3,54 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <title>Text Summarizer with Sentiment Analysis</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
         body {
-            transition: background-color 0.3s, color 0.3s;
-            background-color: #f0f0f0; /* Light gray background */
-            color: #333; /* Dark gray text */
+            background-color: #f0f0f0;
+            color: #333;
             margin: 0;
             padding: 0;
-            min-height: 100vh; /* Ensure full viewport height */
             display: flex;
-            flex-direction: column; /* Make the body a flex container */
+            flex-direction: column;
+            min-height: 100vh;
         }
 
-        /* Wrapper for content */
         .content-wrapper {
-            flex-grow: 1; /* Allow content to grow and take available space */
-            padding-bottom: 56px; /* Adjust for the height of the footer */
+            flex-grow: 1;
+            padding-bottom: 56px;
         }
 
-        /* Footer styles */
         .footer {
-            background-color: #f0f0f0; /* Light gray background for footer */
-            color: #333; /* Dark gray text for footer */
+            background-color: #f0f0f0;
+            color: #333;
             padding: 10px 0;
-            width: 100%;
         }
 
         .footer p {
             margin-bottom: 0;
         }
 
-        /* Navigation bar styles */
         .navbar {
-            background-color: #405DE6; /* Background color for the navigation bar */
-            color: #fff; /* Text color for the navigation bar */
+            background-color: #405DE6;
+            color: #fff;
+        }
+
+        /* Adjust the navigation bar for small screens */
+        @media (max-width: 600px) {
+            .navbar {
+                padding: 0 10px;
+            }
+
+            .brand-logo {
+                font-size: 24px; /* Adjust font size for small screens */
+            }
         }
     </style>
 </head>
 <body>
     <nav class="navbar">
         <div class="nav-wrapper">
-            <a href="/" class="brand-logo">Text Summarizer with Sentiment Analysis</a>
+            <a href="/" class="brand-logo">Text Summarizer</a>
+            <a href="#" data-target="mobile-nav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a href="/">Home</a></li>
                 <li><a href="/about">About</a></li>
             </ul>
         </div>
     </nav>
+    <ul class="sidenav" id="mobile-nav">
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+    </ul>
     <div class="content-wrapper">
         {% block content %}{% endblock %}
     </div>
@@ -72,6 +85,7 @@
     <script>
         // Initialize Materialize components
         $(document).ready(function () {
+            $('.sidenav').sidenav();
             M.AutoInit();
         });
 
