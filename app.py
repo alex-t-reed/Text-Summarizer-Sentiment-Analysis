@@ -1,4 +1,3 @@
-# text_summarizer/app.py
 from nltk.probability import FreqDist
 from nltk.corpus import stopwords
 from nltk.tokenize import sent_tokenize, word_tokenize
