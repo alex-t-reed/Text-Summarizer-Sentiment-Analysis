@@ -47,7 +47,7 @@ To run this application locally, follow these steps:
 
 ```bash
 git clone https://github.com/alex-t-reed/text-summarizer-sentiment-analysis.git
-cd text-summarizer
+cd text-summarizer-sentiment-analysis
 ```
 2. Install the required Python packages using pip. It's recommended to use a virtual environment.
 
