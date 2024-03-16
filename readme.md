@@ -26,7 +26,7 @@ This project builds upon previous work in the [NLP-Example Repository](https://g
 - Python for backend logic.
 - Flask web framework for building the web application.
 - NLTK (Natural Language Toolkit) for text processing and summarization.
-- Bootstrap Framework for styling the user interface.
+- Materialize for styling the user interface.
 - TextBlob for sentiment analysis.
 
 ## Usage
