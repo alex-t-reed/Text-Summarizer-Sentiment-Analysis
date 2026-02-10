@@ -1,8 +1,13 @@
+import nltk
 from nltk.probability import FreqDist
 from nltk.corpus import stopwords
 from nltk.tokenize import sent_tokenize, word_tokenize
 from flask import Flask, render_template, request
 from textblob import TextBlob
+
+nltk.download('punkt')
+nltk.download('punkt_tab') # Good practice for newer versions
+nltk.download('stopwords')
 
 app = Flask(__name__)
 
